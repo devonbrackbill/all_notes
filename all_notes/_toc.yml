@@ -4,6 +4,9 @@
 format: jb-book
 root: intro
 chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+- file: interpretability
+  sections:
+  - file: fast_ai_course/
+# - file: markdown
+# - file: notebooks
+# - file: markdown-notebooks
