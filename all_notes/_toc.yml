@@ -5,8 +5,8 @@ format: jb-book
 root: intro
 chapters:
 - file: interpretability
-  sections:
-  - file: fast_ai_course/
+- file: fast_ai_course/9-stable-diffusion
+- file: elo-ratings
 # - file: markdown
 # - file: notebooks
 # - file: markdown-notebooks
