@@ -26,6 +26,12 @@ repository:
   path_to_book: all_notes  # Optional path to your book, relative to the repository root
   branch: main  # Which branch of the repository should be used when creating links (optional)
 
+# Ensure you have a proper structure defined
+parse:
+  myst_enable_extensions:
+    - colon_fence
+    - deflist
+
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
@@ -53,3 +59,6 @@ sphinx:
       collapse_navigation: false
       navigation_depth: 3
       show_nav_level: 2
+      use_download_button: true
+      use_fullscreen_button: true
+      navigation_with_keys: true
