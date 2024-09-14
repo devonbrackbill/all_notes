@@ -63,6 +63,6 @@ sphinx:
       use_fullscreen_button: true
       navigation_with_keys: true
     html_js_files:
-      - _static/js/custom.js
+      - js/custom.js
     html_css_files:
-      - _static/css/custom.css
+      - css/custom.css
