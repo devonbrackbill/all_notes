@@ -1,3 +1,9 @@
-.bd-sidenav li.active > ul {
+.bd-sidenav li.active > ul,
+#main-toc li.active > ul {
     display: block !important;
+}
+
+.bd-sidenav li.active,
+#main-toc li.active {
+    font-weight: bold;
 }
