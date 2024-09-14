@@ -1,0 +1,3 @@
+.bd-sidenav li.active > ul {
+    display: block !important;
+}
