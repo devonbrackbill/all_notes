@@ -4,6 +4,13 @@
 
 This is a collection of notes on various topics.
 
-```
-{tableofcontents}
-```
+{toctree}
+    :maxdepth: 2
+    :caption: Contents
+    :numbered:
+    interpretability_of_large_language_models
+    stable_diffusion
+    elo_ratings
+    multi-lora
+    llm_evals
+    search_algorithms
