@@ -7,6 +7,15 @@ chapters:
 - file: interpretability
 - file: fast_ai_course/9-stable-diffusion
 - file: elo-ratings
+- file: peft/multi-lora
+- file: llm_evals/index
+  sections:
+    - file: llm_evals/llm-eval-tools
+    - file: llm_evals/rag
+    - file: llm_evals/summarization
+- file: search_algorithms/index
+  sections:
+    - file: search_algorithms/beam-astar
 # - file: markdown
 # - file: notebooks
 # - file: markdown-notebooks

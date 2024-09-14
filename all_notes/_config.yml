@@ -31,3 +31,25 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  use_multitoc_numbering: false
+  home_page_in_navbar: true
+  baseurl: ""
+  comments:
+    hypothesis: false
+    utterances: false
+  extra_footer: |
+    <script src="_static/custom.js"></script>
+
+# Add this to your existing _config.yml
+sphinx:
+  extra_extensions:
+    - sphinx_togglebutton
+  config:
+    html_theme_options:
+      toc_title: ''
+      expand_sections: true
+      use_sidenotes: true
+      show_toc_level: 2
+      collapse_navigation: false
+      navigation_depth: 3
+      show_nav_level: 2
