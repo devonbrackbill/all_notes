@@ -1,0 +1,71 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.12.5/x64/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+def elo_to_prob(elo1, elo2):
+    return 1 / (1 + 10**((elo2 - elo1) / 400))
+
+# make a plot of this:
+# x-axis: elo difference
+# y-axis: win probability
+# one line for each elo difference
+
+elo_diffs = np.arange(-400, 401, 1)
+win_probs = [elo_to_prob(elo, 0) for elo in elo_diffs]
+
+plt.plot(elo_diffs, win_probs, label='Elo model: y = 1 / (1 + 10**((elo2 - elo1) / 400)')
+plt.xlabel('Elo difference (player 1 - player 2)')
+plt.ylabel('Probability of player 1 winning')
+
+# what if we make this a straight line? (i.e. a linear model)
+
+# let's make a linear model for this
+# assume -400 is 0.1 and 400 is 0.9
+# y = mx + b
+# 0.1 = -400m + b
+# 0.9 = 400m + b
+# b = 0.5
+# 0.1 = -400m + 0.5
+# 0.9 = 400m + 0.5
+# 0.4 = 400m
+# m = 0.001
+# y = 0.001x + 0.5
+
+win_probs_linear = [0.001 * elo + 0.5 for elo in elo_diffs]
+plt.plot(elo_diffs, win_probs_linear, label='y = 0.001x + 0.5')
+plt.legend()
+
+plt.title('Probability of Winning in the Elo model vs. linear model:\n100 Elo difference ~ 0.6 probability of winning');
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[1], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
+[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+[1;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
+
+[0;31mModuleNotFoundError[0m: No module named 'pandas'
+
