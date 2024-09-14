@@ -44,7 +44,7 @@ html:
     hypothesis: false
     utterances: false
   extra_footer: |
-    <script src="_static/custom.js"></script>
+    <script src="_static/js/custom.js"></script>
 
 # Add this to your existing _config.yml
 sphinx:
@@ -63,6 +63,6 @@ sphinx:
       use_fullscreen_button: true
       navigation_with_keys: true
     html_js_files:
-      - js/custom.js
+      - _static/js/custom.js
     html_css_files:
-      - css/custom.css
+      - _static/css/custom.css
