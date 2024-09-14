@@ -41,7 +41,7 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/documentation_options.js?v=c73c0f3e"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -57,8 +57,6 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'elo-ratings';</script>
     <script src="_static/custom.js?v=28b6f66c"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -350,16 +348,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="elo-ratings">
+  <section id="elo-ratings">
 <h1>Elo Ratings<a class="headerlink" href="#elo-ratings" title="Link to this heading">#</a></h1>
 <p><strong>Goal</strong>: Elo ratings are unintuitive. I need an intuitive grasp of how to convert an Elo rating into a probability of winning.</p>
 <p>What matters in Elo ratings is the <strong>difference</strong> between 2 players. This difference can be converted into the <strong>probability of winning</strong>.</p>
 <p>A simple linear model says +100 Elo point difference means the player has a 60% chance of winning. This slighly <strong>undercounts</strong> the true probability. At larger differences, it starts to approach the true probability again.</p>
 <p>Just remember:</p>
-<div class="math notranslate nohighlight">
-\[
+<p>$$
 +100 \text{Elo} = 0.6 \text{prob win}
-\]</div>
+$$</p>
 <section id="figure">
 <h2>Figure<a class="headerlink" href="#figure" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide-input docutils container">
