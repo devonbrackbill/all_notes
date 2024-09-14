@@ -62,3 +62,7 @@ sphinx:
       use_download_button: true
       use_fullscreen_button: true
       navigation_with_keys: true
+    html_js_files:
+      - js/custom.js
+    html_css_files:
+      - css/custom.css
