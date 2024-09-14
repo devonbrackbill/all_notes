@@ -36,4 +36,4 @@ jobs:
         publish_dir: all_notes/_build/html
     - name: List files
       run: |
-        ls -R all_notes/all_notes/_build/html
+        ls -R all_notes/_build/html
