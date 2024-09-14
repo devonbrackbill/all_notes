@@ -22,15 +22,15 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install -r all_notes/requirements.txt
+        pip install -r requirements.txt
         pip install jupyter-book ghp-import
 
     - name: Build the book
       run: |
-        jupyter-book build all_notes/all_notes/
+        jupyter-book build all_notes/
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: all_notes/all_notes/_build/html
+        publish_dir: all_notes/_build/html
