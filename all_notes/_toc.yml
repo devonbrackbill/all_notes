@@ -16,3 +16,6 @@ chapters:
 - file: search_algorithms/index
   sections:
     - file: search_algorithms/beam-astar
+- file: simulations/index
+  sections:
+    - file: simulations/kelly-principle-betting

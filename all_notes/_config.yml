@@ -4,7 +4,7 @@
 title: All Notes
 author: Devon Brackbill
 logo: logo.png
-copyright: 2024
+copyright: "2024"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -31,6 +31,8 @@ parse:
   myst_enable_extensions:
     - colon_fence
     - deflist
+    - dollarmath
+    - amsmath
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
@@ -66,3 +68,4 @@ sphinx:
       - js/custom.js
     html_css_files:
       - css/custom.css
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
