@@ -17,6 +17,7 @@ docutils==0.20.1
 executing==2.1.0
 fastjsonschema==2.20.0
 fonttools==4.53.1
+ghp-import==2.1.0
 idna==3.9
 imagesize==1.4.1
 importlib_metadata==8.5.0
