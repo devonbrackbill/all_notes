@@ -1,0 +1,668 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Kelly Principle in Betting &#8212; All Notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=a06ac89c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=c73c0f3e"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'simulations/kelly-principle-betting';</script>
+    <script src="../_static/js/custom.js?v=145669f6"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Simulations" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="All Notes - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="All Notes - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../llm_evals/index.html">LLM Evals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../llm_evals/llm-eval-tools.html">LLM Eval Tools</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../llm_evals/rag.html">Beyond the Basics of Retrieval for Augmenting Generation</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../llm_evals/summarization.html">LLM Summarization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../interpretability.html">Interpretability of Large Language Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fast_ai_course/9-stable-diffusion.html">Stable Diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../elo-ratings.html">Elo Ratings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../peft/multi-lora.html">Multi-LoRA</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../search_algorithms/index.html">Search Algorithms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../search_algorithms/beam-astar.html">Beam Search vs A-Star Search</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Simulations</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Kelly Principle in Betting</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/simulations/kelly-principle-betting.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Kelly Principle in Betting</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="kelly-principle-in-betting">
+<h1>Kelly Principle in Betting<a class="headerlink" href="#kelly-principle-in-betting" title="Link to this heading">#</a></h1>
+<p>https://www.researchgate.net/publication/312091638_Rational_Decision-Making_Under_Uncertainty_Observed_Betting_Patterns_on_a_Biased_Coin</p>
+<p>You should always bet a constant fraction of your wealth in order to maximize the expected (log) of your wealth. This is known as the Kelly Principle.</p>
+<p>The Kelly Principle finds an optimal fraction given by the formula:</p>
+<div class="math notranslate nohighlight">
+\[
+2*p - 1
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(p\)</span> is the probability of winning.</p>
+<p>Let’s simulate this in a biased coin toss. We will simulate a biased coin toss with a probability of winning of 0.6. We will simulate 1000 rounds of betting. We will bet a fraction of our wealth given by the Kelly Principle.</p>
+<p>We’ll look at 3 strategies:</p>
+<ul class="simple">
+<li><p>Betting a fixed amount of the initial wealth (10% and 25%)</p></li>
+<li><p>Betting a fixed amount of the current wealth (10% and 25%)</p></li>
+<li><p>Betting a fraction of the wealth given by the Kelly Principle</p></li>
+</ul>
+<p>This simulation shows, yes, the Kelly Princple is optimal in the long run. But in practice the exact proportion you bet doesn’t matter a lot. The important thing is to bet a constant fraction of your wealth. You’re guaranteed to never go broke (as long as you can bet fractions of pennies).</p>
+<p>Never, ever bet a fixed amount of money! Note: this is what blinds are forcing you to: you have to bet a minimum amount of money, regardless of the odds. So they encourage you to go bankrupt.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">class</span> <span class="nc">BettingStrategy</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract base class for different betting strategies&quot;&quot;&quot;</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">get_bet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bankroll</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">history</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns (bet_amount, bet_on_heads)</span>
+<span class="sd">        bet_amount: how much to bet</span>
+<span class="sd">        bet_on_heads: True to bet on heads, False for tails</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">BiasedCoinGame</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> 
+                 <span class="n">initial_bankroll</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">25.0</span><span class="p">,</span>
+                 <span class="n">win_threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">250.0</span><span class="p">,</span>
+                 <span class="n">heads_probability</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initial_bankroll</span> <span class="o">=</span> <span class="n">initial_bankroll</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">win_threshold</span> <span class="o">=</span> <span class="n">win_threshold</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">heads_probability</span> <span class="o">=</span> <span class="n">heads_probability</span>
+        
+    <span class="k">def</span> <span class="nf">play_game</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strategy</span><span class="p">:</span> <span class="n">BettingStrategy</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Plays one full game using the given strategy</span>
+<span class="sd">        Returns: (final_bankroll, num_flips, won)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">bankroll</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_bankroll</span>
+        <span class="n">history</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">num_flips</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="k">while</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">bankroll</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">win_threshold</span><span class="p">:</span>
+            <span class="c1"># Get bet from strategy</span>
+            <span class="n">bet_amount</span><span class="p">,</span> <span class="n">bet_on_heads</span> <span class="o">=</span> <span class="n">strategy</span><span class="o">.</span><span class="n">get_bet</span><span class="p">(</span><span class="n">bankroll</span><span class="p">,</span> <span class="n">history</span><span class="p">)</span>
+            <span class="n">bet_amount</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">bet_amount</span><span class="p">,</span> <span class="n">bankroll</span><span class="p">)</span>  <span class="c1"># Can&#39;t bet more than you have</span>
+            
+            <span class="c1"># Flip coin</span>
+            <span class="n">is_heads</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">heads_probability</span>
+            <span class="n">history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">is_heads</span><span class="p">)</span>
+            <span class="n">num_flips</span> <span class="o">+=</span> <span class="mi">1</span>
+            
+            <span class="c1"># Update bankroll</span>
+            <span class="n">won_bet</span> <span class="o">=</span> <span class="p">(</span><span class="n">is_heads</span> <span class="o">==</span> <span class="n">bet_on_heads</span><span class="p">)</span>
+            <span class="n">bankroll</span> <span class="o">+=</span> <span class="n">bet_amount</span> <span class="k">if</span> <span class="n">won_bet</span> <span class="k">else</span> <span class="o">-</span><span class="n">bet_amount</span>
+            
+        <span class="k">return</span> <span class="n">bankroll</span><span class="p">,</span> <span class="n">num_flips</span><span class="p">,</span> <span class="n">bankroll</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">win_threshold</span>
+
+<span class="c1"># Example strategy: Always bet 10% on heads</span>
+<span class="k">class</span> <span class="nc">FixedPercentageStrategy</span><span class="p">(</span><span class="n">BettingStrategy</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">percentage</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">percentage</span> <span class="o">=</span> <span class="n">percentage</span>
+        
+    <span class="k">def</span> <span class="nf">get_bet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bankroll</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">history</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">bankroll</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">percentage</span><span class="p">,</span> <span class="kc">True</span>
+
+<span class="k">class</span> <span class="nc">FixedAmountStrategy</span><span class="p">(</span><span class="n">BettingStrategy</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">percentage</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">initial_bankroll</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">25.0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">percentage</span> <span class="o">=</span> <span class="n">percentage</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initial_bankroll</span> <span class="o">=</span> <span class="n">initial_bankroll</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bet_amount</span> <span class="o">=</span> <span class="n">initial_bankroll</span> <span class="o">*</span> <span class="n">percentage</span>
+        
+    <span class="k">def</span> <span class="nf">get_bet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bankroll</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">history</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">bet_amount</span><span class="p">,</span> <span class="kc">True</span>  <span class="c1"># Always bet fixed amount on heads</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">KellyCriterionStrategy</span><span class="p">(</span><span class="n">BettingStrategy</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">heads_probability</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">heads_probability</span> <span class="o">=</span> <span class="n">heads_probability</span>
+        
+    <span class="k">def</span> <span class="nf">get_bet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bankroll</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">history</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]:</span>
+        <span class="c1"># Kelly Criterion formula: f* = (p*b - q)/b</span>
+        <span class="c1"># where p = probability of winning, q = probability of losing</span>
+        <span class="c1"># b = odds received (1 in this case)</span>
+        
+        <span class="c1"># Always bet on the favorable outcome (heads)</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">heads_probability</span>  <span class="c1"># probability of heads</span>
+        <span class="n">q</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">p</span>  <span class="c1"># probability of tails</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># even money odds</span>
+        
+        <span class="n">kelly_fraction</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="n">q</span><span class="p">)</span><span class="o">/</span><span class="n">b</span>
+        <span class="k">return</span> <span class="n">bankroll</span> <span class="o">*</span> <span class="n">kelly_fraction</span><span class="p">,</span> <span class="kc">True</span>
+
+<span class="k">def</span> <span class="nf">run_simulation</span><span class="p">(</span><span class="n">game</span><span class="p">:</span> <span class="n">BiasedCoinGame</span><span class="p">,</span> <span class="n">strategy</span><span class="p">:</span> <span class="n">BettingStrategy</span><span class="p">,</span> <span class="n">num_games</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run multiple games with the same strategy and return results&quot;&quot;&quot;</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_games</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">play_game</span><span class="p">(</span><span class="n">strategy</span><span class="p">)</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">results</span>
+
+<span class="k">def</span> <span class="nf">analyze_results</span><span class="p">(</span><span class="n">results</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Analyze and print summary statistics&quot;&quot;&quot;</span>
+    <span class="n">final_bankrolls</span><span class="p">,</span> <span class="n">num_flips</span><span class="p">,</span> <span class="n">won_games</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">results</span><span class="p">)</span>
+    <span class="n">win_rate</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">won_games</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">won_games</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Win rate: </span><span class="si">{</span><span class="n">win_rate</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average number of flips: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">num_flips</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Median final bankroll: $</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">final_bankrolls</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">plot_comparison</span><span class="p">(</span><span class="n">strategies_results</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot comparison of different strategies&quot;&quot;&quot;</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    
+    <span class="c1"># Plot win rates</span>
+    <span class="n">win_rates</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">won</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">won</span> <span class="ow">in</span> <span class="n">results</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> 
+                 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">results</span> <span class="ow">in</span> <span class="n">strategies_results</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">win_rates</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">win_rates</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Win Rates by Strategy&#39;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Win Rate&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Plot distribution of number of flips</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">results</span> <span class="ow">in</span> <span class="n">strategies_results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">flips</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+        <span class="n">mean_flips</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">flips</span><span class="p">)</span>
+        
+        <span class="c1"># Plot histogram and mean line</span>
+        <span class="n">hist</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">flips</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> (mean=</span><span class="si">{</span><span class="n">mean_flips</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">mean_flips</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">hist</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_facecolor</span><span class="p">(),</span> 
+                    <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+    
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distribution of Number of Flips&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of Flips&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">fig</span>
+
+<span class="c1"># Run simulations</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">game</span> <span class="o">=</span> <span class="n">BiasedCoinGame</span><span class="p">()</span>
+    <span class="n">strategies</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;10% wealth&#39;</span><span class="p">:</span> <span class="n">FixedPercentageStrategy</span><span class="p">(</span><span class="mf">0.1</span><span class="p">),</span>
+        <span class="s1">&#39;25% wealth&#39;</span><span class="p">:</span> <span class="n">FixedPercentageStrategy</span><span class="p">(</span><span class="mf">0.25</span><span class="p">),</span>
+        <span class="s1">&#39;10</span><span class="si">% i</span><span class="s1">nitial wealth&#39;</span><span class="p">:</span> <span class="n">FixedAmountStrategy</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">),</span>
+        <span class="s1">&#39;25</span><span class="si">% i</span><span class="s1">nitial wealth&#39;</span><span class="p">:</span> <span class="n">FixedAmountStrategy</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">),</span>
+        <span class="s1">&#39;Kelly Criterion&#39;</span><span class="p">:</span> <span class="n">KellyCriterionStrategy</span><span class="p">(</span><span class="mf">0.6</span><span class="p">)</span>
+    <span class="p">}</span>
+    
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">strategy</span> <span class="ow">in</span> <span class="n">strategies</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Running simulation for </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+        <span class="n">results</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">run_simulation</span><span class="p">(</span><span class="n">game</span><span class="p">,</span> <span class="n">strategy</span><span class="p">,</span> <span class="n">num_games</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+        <span class="n">analyze_results</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+    
+    <span class="c1"># Plot results</span>
+    <span class="n">plot_comparison</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running simulation for 10% wealth...
+Win rate: 100.0%
+Average number of flips: 153.1
+Median final bankroll: $261.20
+
+Running simulation for 25% wealth...
+Win rate: 100.0%
+Average number of flips: 136.7
+Median final bankroll: $277.09
+
+Running simulation for 10% initial wealth...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Win rate: 98.1%
+Average number of flips: 439.5
+Median final bankroll: $250.00
+
+Running simulation for 25% initial wealth...
+Win rate: 81.3%
+Average number of flips: 141.8
+Median final bankroll: $250.00
+
+Running simulation for Kelly Criterion...
+Win rate: 100.0%
+Average number of flips: 110.7
+Median final bankroll: $270.38
+</pre></div>
+</div>
+<img alt="../_images/a40f17cb068df06f37821997238e8b7a46b7ed479f1cc970eab16211bb51ebf4.png" src="../_images/a40f17cb068df06f37821997238e8b7a46b7ed479f1cc970eab16211bb51ebf4.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./simulations"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Simulations</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Devon Brackbill
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
