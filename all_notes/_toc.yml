@@ -9,6 +9,9 @@ chapters:
     - file: llm_evals/llm-eval-tools
     - file: llm_evals/rag
     - file: llm_evals/summarization
+- file: build_llm_scratch/index
+  sections:
+    - file: build_llm_scratch/positional-embeddings
 - file: interpretability
 - file: fast_ai_course/9-stable-diffusion
 - file: elo-ratings
