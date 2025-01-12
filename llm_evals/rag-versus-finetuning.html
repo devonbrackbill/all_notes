@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Simulations &#8212; All Notes</title>
+    <title>Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs &#8212; All Notes</title>
   
   
   
@@ -58,14 +58,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'simulations/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'llm_evals/rag-versus-finetuning';</script>
     <script src="../_static/js/custom.js?v=145669f6"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Kelly Principle in Betting" href="kelly-principle-betting.html" />
-    <link rel="prev" title="Beam Search vs A-Star Search" href="../search_algorithms/beam-astar.html" />
+    <link rel="next" title="LLM Eval Tools" href="llm-eval-tools.html" />
+    <link rel="prev" title="LLM Evals" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,13 +174,13 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../llm_evals/index.html">LLM Evals</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../llm_evals/rag-versus-finetuning.html">Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../llm_evals/llm-eval-tools.html">LLM Eval Tools</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">LLM Evals</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="llm-eval-tools.html">LLM Eval Tools</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../llm_evals/rag.html">Beyond the Basics of Retrieval for Augmenting Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rag.html">Beyond the Basics of Retrieval for Augmenting Generation</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../llm_evals/summarization.html">LLM Summarization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="summarization.html">LLM Summarization</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../build_llm_scratch/index.html">Building LLMs from Scratch</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
@@ -196,8 +194,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../search_algorithms/beam-astar.html">Beam Search vs A-Star Search</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Simulations</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="kelly-principle-betting.html">Kelly Principle in Betting</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../simulations/index.html">Simulations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../simulations/kelly-principle-betting.html">Kelly Principle in Betting</a></li>
 </ul>
 </details></li>
 </ul>
@@ -254,7 +252,7 @@
       
       
       
-      <li><a href="../_sources/simulations/index.md" target="_blank"
+      <li><a href="../_sources/llm_evals/rag-versus-finetuning.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -264,7 +262,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -325,7 +323,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -336,11 +336,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Simulations</h1>
+    <h1>Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2>  </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-vs-memorization">Learning vs Memorization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-diversity-during-sft">Information diversity during SFT</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -350,14 +359,25 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="simulations">
-<h1>Simulations<a class="headerlink" href="#simulations" title="Link to this heading">#</a></h1>
-<p>A collection of simulations, typically focused on economics, social systems, and other complex systems.</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="kelly-principle-betting.html"><span class="std std-doc">Kelly Principle in Betting</span></a></p></li>
-</ul>
-<div class="toctree-wrapper compound">
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="fine-tuning-or-retrieval-comparing-knowledge-injection-in-llms">
+<h1>Fine-Tuning or Retrieval? Comparing Knowledge Injection in LLMs<a class="headerlink" href="#fine-tuning-or-retrieval-comparing-knowledge-injection-in-llms" title="Link to this heading">#</a></h1>
+<p>2024-01</p>
+<p><a class="reference external" href="https://arxiv.org/abs/2312.05934">Arxiv link</a></p>
+<p>This is a good paper to cite to show that RAG is better than supervised fine-tuning (SFT). This is widely known among practitioners, but it’s good to have a source to cite.</p>
+<p>They show that RAG performs better than SFT on a task involving answering questions from Wikipedia. RAG alone also typically performs better than RAG+SFT (tho not consistently).</p>
+<p>They use 3 x 7B parameter models (Llama2, Mistral, Orca) to make the evaluation.</p>
+<p><a class="reference internal" href="../_images/rag-vs-finetuning.png"><img alt="RAG versus Fine-tuning" src="../_images/rag-vs-finetuning.png" style="width: 600px;" /></a></p>
+<section id="learning-vs-memorization">
+<h2>Learning vs Memorization<a class="headerlink" href="#learning-vs-memorization" title="Link to this heading">#</a></h2>
+<p>There is good evidence that Supervised Fine-tuning (SFT) is mostly memorizing the training set, rather than learning. This figure shows that learning really occurs only in the first epoch. Instead, training for multiple epochs results in sudden jumps in loss, which is consistent with training set memorization, not learning.</p>
+<p><a class="reference internal" href="../_images/rag-vs-finetuning-memorization.png"><img alt="Learning vs Memorization in Fine-tuning" src="../_images/rag-vs-finetuning-memorization.png" style="width: 600px;" /></a></p>
+</section>
+<section id="information-diversity-during-sft">
+<h2>Information diversity during SFT<a class="headerlink" href="#information-diversity-during-sft" title="Link to this heading">#</a></h2>
+<p>They argue that diversifying the training set (or rewording it) is a good approach. They inject paraphrases into SFT, and show that injecting more paraphrases is associated with monotonically increasing accuracy. Remember, SFT is focused only on next token prediction loss. So it can over-optimize for wording and phrasing, and under-optimize for getting the right answer (i.e., accuracy over an entire sentence or paragraph).</p>
+<p><a class="reference internal" href="../_images/rag-vs-finetuning-paraphrasing.png"><img alt="Paraphrasing during SFT improves performance" src="../_images/rag-vs-finetuning-paraphrasing.png" style="width: 600px;" /></a></p>
+<p>There has been some recent work on optimizing directly for accuracy rather than next token prediction in SFT. The <a class="reference external" href="https://ai.meta.com/research/publications/the-llama-3-herd-of-models/">Llama 3.1 Herd of Models paper</a> kind of uses this approach when they derive a scaling law that converts the negative log loss per character into a projected accuracy on the ARC Challenge benchmark.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -373,7 +393,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./simulations"
+            path: "./llm_evals"
         },
         predefinedOutput: true
     }
@@ -391,20 +411,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../search_algorithms/beam-astar.html"
+       href="index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Beam Search vs A-Star Search</p>
+        <p class="prev-next-title">LLM Evals</p>
       </div>
     </a>
     <a class="right-next"
-       href="kelly-principle-betting.html"
+       href="llm-eval-tools.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Kelly Principle in Betting</p>
+        <p class="prev-next-title">LLM Eval Tools</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -414,6 +434,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-vs-memorization">Learning vs Memorization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#information-diversity-during-sft">Information diversity during SFT</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
