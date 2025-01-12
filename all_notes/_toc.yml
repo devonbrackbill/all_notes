@@ -6,6 +6,7 @@ root: intro
 chapters:
 - file: llm_evals/index
   sections:
+    - file: llm_evals/rag-versus-finetuning
     - file: llm_evals/llm-eval-tools
     - file: llm_evals/rag
     - file: llm_evals/summarization

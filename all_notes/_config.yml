@@ -33,6 +33,7 @@ parse:
     - deflist
     - dollarmath
     - amsmath
+    - attrs_image
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
@@ -47,6 +48,8 @@ html:
     utterances: false
   extra_footer: |
     <script src="_static/js/custom.js"></script>
+  extra_files:
+    - img/
 
 # Add this to your existing _config.yml
 sphinx:

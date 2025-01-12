@@ -1,8 +1,10 @@
 # LLM Evals
 
-* [LLM Eval Tools](llm_evals/llm_eval_tools.ipynb)
-* [RAG](llm_evals/rag.ipynb)
-* [Summarization](llm_evals/summarization.ipynb)
+* [Which is better, Fine-tuning or RAG?](rag-versus-finetuning)
+
+* [LLM Eval Tools](llm-eval-tools)
+* [Beyond the Basics of RAG](rag)
+* [LLM Summarization](summarization)
 * ...
 
 ## Reading List
